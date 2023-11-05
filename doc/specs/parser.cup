@@ -51,9 +51,45 @@ parser code {:
 :}
 
 // Declaracion de terminales (Ejemplo)
-
+//Operadores
 terminal Token PLUS;
 terminal Token MINUS;
+terminal Token MULTIPLICATION;
+terminal Token GT;
+terminal Token NEQ;
+terminal Token ASSIGNMENT;
+terminal Token DOT;
+// Palabras reservadas
+terminal Token AND;
+terminal Token BEGIN;
+terminal Token BOOLEAN;
+terminal Token CONSTANT;
+terminal Token ELSE;
+terminal Token END;
+terminal Token FALSE;
+terminal Token FUNCTION;
+terminal Token IF;
+terminal Token INTEGER;
+terminal Token IS;
+terminal Token LOOP;
+terminal Token OUT;
+terminal Token PROCEDURE;
+terminal Token PUT_LINE;
+terminal Token RECORD;
+terminal Token RETURN;
+terminal Token THEN;
+terminal Token TRUE;
+terminal Token TYPE;
+terminal Token WHILE;
+terminal Token NUMBER;
+terminal Token IDENTIFIER;
+terminal Token STRING;
+// Delimitadores
+terminal Token RBRACKET;
+terminal Token LBRACKET;
+terminal Token COMMA;
+terminal Token SEMICOLON;
+terminal Token COLON;
 // ...
 
 
@@ -70,7 +106,7 @@ precedence left     PLUS,
                     MINUS;
 // ...
 
-// Declaración de reglas de produccion
+// Declaraciï¿½n de reglas de produccion
 
 
 start with program;
