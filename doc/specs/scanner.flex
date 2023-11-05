@@ -35,6 +35,15 @@ import es.uned.lsi.compiler.lexical.LexicalErrorManager;
   	token.setLexema(yytext());
   	return token;
   }
+  
+  public void nuevoError(String msg){
+  	LexicalError error = new LexicalError ();
+    error.setLine (yyline + 1);
+    error.setColumn (yycolumn + 1);
+    error.setLexema (yytext ());
+    lexicalErrorManager.lexicalError (error);
+    lexicalErrorManager.lexicalDebug (msg);
+  }
 %}  
   
 
@@ -117,15 +126,8 @@ BAD_IDENTIFIER = {NUMBER}{LETTER}|{NUMBER}{LETTER}{LETTER}*
 	//Fin ExReg
     
     // error en caso de coincidir con ningun patron
-	[^]     
-                        {                                               
-                           LexicalError error = new LexicalError ();
-                           error.setLine (yyline + 1);
-                           error.setColumn (yycolumn + 1);
-                           error.setLexema (yytext ());
-                           lexicalErrorManager.lexicalError (error);
-                        }
-    
+	[^] {nuevoError ("Error sin identificar");}
+    {BAD_IDENTIFIER} {nuevoError("Identificador invalido");}
 }
 
 

@@ -2,7 +2,7 @@
 
 procedure testCase7 () is
 
-        x: Integer;
+        _: Integer;
 
 begin	
         Put_line ("CRONTROL FLUJO WHILE");
