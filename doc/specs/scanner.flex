@@ -52,7 +52,7 @@ fin = "fin"{ESPACIO_BLANCO}
 SALTO_LINEA = [\r\n]
 LETTER = [A-Za-z]
 DIGIT = [0-9]
-NUMBER = {DIGIT}|{DIGIT}{DIGIT}*
+NUMBER = {DIGIT}+
 IDENTIFIER = {LETTER}({LETTER}|{DIGIT})*
 COMMENT = "--" ~{SALTO_LINEA}
 STRING = "\"" ~"\""
@@ -121,13 +121,13 @@ BAD_IDENTIFIER = {NUMBER}{LETTER}|{NUMBER}{LETTER}{LETTER}*
    {COMMENT} {}
    {STRING} { return nuevoToken(sym.STRING); }
 	
-{fin} {}
-
+	{fin} {}
 	//Fin ExReg
     
-    // error en caso de coincidir con ningun patron
+    // Errores
 	[^] {nuevoError ("Error sin identificar");}
     {BAD_IDENTIFIER} {nuevoError("Identificador invalido");}
+    // Fin Errores
 }
 
 

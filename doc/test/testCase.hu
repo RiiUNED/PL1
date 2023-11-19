@@ -2,10 +2,10 @@
 
 procedure testCase7 () is
 
-        _: Integer;
+        x: Integer;
 
 begin	
-        Put_line ("CRONTROL FLUJO WHILE");
+        Put_line_ ("CRONTROL FLUJO WHILE");
 	
 	x:=5;
 	
